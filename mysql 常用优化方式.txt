@@ -1,22 +1,22 @@
-Ò»¡¢mysql Ë÷ÒýÓÅ»¯
-1):µ¥±íÊý¾Ý°ÙÍòÁ¿¼¶,¼ÇÂ¼·ÖÒ³ÐÔÄÜÈçºÎÓÅ»¯¡£
-	limit ²éÑ¯Óï¾äµÄ²éÑ¯Ê±¼äÊÇºÍÆðÊ¼¼ÇÂ¼µÄÎ»ÖÃ³ÉÕý±È¡£
-	½â¾ö·½·¨:ÀûÓÃ±íµÄ¸²¸ÇË÷Òý¡¢²éÑ¯Ë÷Òý
-	×ÔÔöµÄidÊÇÖ÷¼üË÷Òý¡£
+ä¸€ã€mysql ç´¢å¼•ä¼˜åŒ–
+1):å•è¡¨æ•°æ®ç™¾ä¸‡é‡çº§,è®°å½•åˆ†é¡µæ€§èƒ½å¦‚ä½•ä¼˜åŒ–ã€‚
+	limit æŸ¥è¯¢è¯­å¥çš„æŸ¥è¯¢æ—¶é—´æ˜¯å’Œèµ·å§‹è®°å½•çš„ä½ç½®æˆæ­£æ¯”ã€‚
+	è§£å†³æ–¹æ³•:åˆ©ç”¨è¡¨çš„è¦†ç›–ç´¢å¼•ã€æŸ¥è¯¢ç´¢å¼•
+	è‡ªå¢žçš„idæ˜¯ä¸»é”®ç´¢å¼•ã€‚
 	select id from product limit 866613, 20
-	ÄÇÃ´Èç¹ûÎÒÃÇÒ²Òª²éÑ¯ËùÓÐÁÐ£¬ÓÐÁ½ÖÖ·½·¨£¬Ò»ÖÖÊÇid>=µÄÐÎÊ½£¬ÁíÒ»ÖÖ¾ÍÊÇÀûÓÃjoin£¬¿´ÏÂÊµ¼ÊÇé¿ö£º
+	é‚£ä¹ˆå¦‚æžœæˆ‘ä»¬ä¹Ÿè¦æŸ¥è¯¢æ‰€æœ‰åˆ—ï¼Œæœ‰ä¸¤ç§æ–¹æ³•ï¼Œä¸€ç§æ˜¯id>=çš„å½¢å¼ï¼Œå¦ä¸€ç§å°±æ˜¯åˆ©ç”¨joinï¼Œçœ‹ä¸‹å®žé™…æƒ…å†µï¼š
 	SELECT * FROM product WHERE ID > =(select id from product limit 866613, 1) limit 20
-	²éÑ¯Ê±¼äÎª0.2Ãë£¬¼òÖ±ÊÇÒ»¸öÖÊµÄ·ÉÔ¾°¡£¬¹þ¹þ
-2):mysql ×éºÏË÷Òý
-  ÓÐ×éºÏ²éÑ¯µÄsql,¾¡Á¿½¨Á¢×éºÏË÷Òý¡£
-  ×éºÏË÷Òý×ñÑ­×î×óÓÅÏÈÔ­Ôò:
-  ×éºÏË÷ÒýµÄµÚÒ»¸ö×Ö¶Î±ØÐë³öÏÖÔÚ²éÑ¯×é¾äÖÐ£¬Õâ¸öË÷Òý²Å»á±»ÓÃµ½¡£
-  ÏÂÃæÇé¿ö¶¼»áÓÃµ½Ë÷Òý
-  ÀýÈç:order_index(a,b,c) 
+	æŸ¥è¯¢æ—¶é—´ä¸º0.2ç§’ï¼Œç®€ç›´æ˜¯ä¸€ä¸ªè´¨çš„é£žè·ƒå•Šï¼Œå“ˆå“ˆ
+2):mysql ç»„åˆç´¢å¼•
+  æœ‰ç»„åˆæŸ¥è¯¢çš„sql,å°½é‡å»ºç«‹ç»„åˆç´¢å¼•ã€‚
+  ç»„åˆç´¢å¼•éµå¾ªæœ€å·¦ä¼˜å…ˆåŽŸåˆ™:
+  ç»„åˆç´¢å¼•çš„ç¬¬ä¸€ä¸ªå­—æ®µå¿…é¡»å‡ºçŽ°åœ¨æŸ¥è¯¢ç»„å¥ä¸­ï¼Œè¿™ä¸ªç´¢å¼•æ‰ä¼šè¢«ç”¨åˆ°ã€‚
+  ä¸‹é¢æƒ…å†µéƒ½ä¼šç”¨åˆ°ç´¢å¼•
+  ä¾‹å¦‚:order_index(a,b,c) 
   where a=1,b=2,c=3;  
   where a=1,c=3;
   where a=1,b=3;
-  ÏÂÃæÇé¿ö²»»áÓÃµ½Ë÷Òý
+  ä¸‹é¢æƒ…å†µä¸ä¼šç”¨åˆ°ç´¢å¼•
   where b=2,a=1;
   where c=2,a=1;
   where b=1,c=2;
