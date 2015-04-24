@@ -21,3 +21,32 @@
   where c=2,a=1;
   where b=1,c=2;
   
+3):mysql like 的查询优化;
+  1000万数据使用like 效率太低。
+  select tag from log where tag like '%www.%'; - 此SQL效率查询低下，
+  ------替代sql ----------------
+  select tag from log where  instr('tag','www.') >0;
+  select tag from log where  locate('tag','www.') >0;
+  也可以根据表结果使用find_in_set 对于 字段是用逗号分隔开
+   select * from tags where find_in_set('xiaow',tag); 
+4):mysql where like 语句是否能用到索引:
+  EXPLAIN select * from tags where tag like 'abc%'; 可以用到索引
+  EXPLAIN select * from tags where tag like '%abc'; 可以用到索引
+  EXPLAIN select * from tags where tag like '%abc%';不能用到索引
+ 
+二、mysql 的where 语句优化
+
+
+
+
+三、mysql(insert、update 、delete) 优化
+    1)insert 优化:
+	   如果同时从同一个客户端插入很多行，使用含多个VALUE的INSERT语句同时插入几行。这比使用单行INSERT语句快(在某些情况下快几倍)。
+	   例如:INSERT INTO a VALUES (1,23),(2,34),(4,33); bulk_insert_buffer_size 修改次参数
+
+三、mysql 的配置优化
+
+
+四、mysql 的主从负责原理:
+
+
